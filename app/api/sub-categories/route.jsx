@@ -5,7 +5,8 @@ import SubCategories from "@/models/SubCategories";
 export const GET = async (request) => {
   try {
     await connectDB();
-    return new NextResponse("db connected and working", { status: 200 });
+    const subCategories = await SubCategories.find({});
+    return new NextResponse(JSON.stringify(subCategories), { status: 200 });
   } catch (error) {
     return new NextResponse("error in fetching sub cats " + error, {
       status: 500,

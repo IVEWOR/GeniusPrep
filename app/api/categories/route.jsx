@@ -5,7 +5,7 @@ import Categories from "@/models/Categories";
 export const GET = async (request) => {
   try {
     await connectDB();
-    const categories = await Categories.find();
+    const categories = await Categories.find({});
     return new NextResponse(JSON.stringify(categories), { status: 200 });
   } catch (error) {
     return new NextResponse("error in exam cats" + error, { status: 500 });
