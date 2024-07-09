@@ -23,6 +23,23 @@ const ExamSchema = new Schema(
       ref: "SubCategory",
       required: true,
     },
+    qna: [
+      {
+        questions: {
+          type: String,
+          options: [
+            {
+              option: {
+                type: String,
+              },
+            },
+          ],
+          answer: {
+            type: String,
+          },
+        },
+      },
+    ],
   },
   { timestamps: true }
 );
