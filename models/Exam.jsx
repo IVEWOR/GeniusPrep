@@ -2,6 +2,23 @@ import mongoose from "mongoose";
 
 const { Schema } = mongoose;
 
+const QuestionSchema = new Schema({
+  question: {
+    type: String,
+    required: true,
+  },
+  options: [
+    {
+      type: String,
+      required: true,
+    },
+  ],
+  answer: {
+    type: String,
+    required: true,
+  },
+});
+
 const ExamSchema = new Schema(
   {
     title: {
@@ -23,23 +40,7 @@ const ExamSchema = new Schema(
       ref: "SubCategory",
       required: true,
     },
-    qna: [
-      {
-        questions: {
-          type: String,
-          options: [
-            {
-              option: {
-                type: String,
-              },
-            },
-          ],
-          answer: {
-            type: String,
-          },
-        },
-      },
-    ],
+    questions: [QuestionSchema],
   },
   { timestamps: true }
 );

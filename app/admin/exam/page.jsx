@@ -14,17 +14,65 @@ async function fetchData(route) {
 }
 
 // question and answer
-
 const QNA = ({ index }) => {
   return (
     <div>
-      <label htmlFor={`question_${index}`}>Question {index}</label>
-      <input
-        type="text"
-        name={`question_${index}`}
-        placeholder="Enter question"
-        id={`question_${index}`}
-      />
+      <div>
+        <label htmlFor={`questions[${index}][question]`}>
+          Question {index}
+        </label>
+        <input
+          type="text"
+          name={`questions[${index}][question]`}
+          placeholder="Enter question"
+          id={`questions[${index}][question]`}
+        />
+      </div>
+      <div>
+        <label htmlFor={`questions[${index}][option_1]`}>Option 1</label>
+        <input
+          type="text"
+          name={`questions[${index}][option_1]`}
+          placeholder="Enter option"
+          id={`questions[${index}][option_1]`}
+        />
+      </div>
+      <div>
+        <label htmlFor={`questions[${index}][option_2]`}>Option 2</label>
+        <input
+          type="text"
+          name={`questions[${index}][option_2]`}
+          placeholder="Enter option"
+          id={`questions[${index}][option_2]`}
+        />
+      </div>
+      <div>
+        <label htmlFor={`questions[${index}][option_3]`}>Option 3</label>
+        <input
+          type="text"
+          name={`questions[${index}][option_3]`}
+          placeholder="Enter option"
+          id={`questions[${index}][option_3]`}
+        />
+      </div>
+      <div>
+        <label htmlFor={`questions[${index}][option_4]`}>Option 4</label>
+        <input
+          type="text"
+          name={`questions[${index}][option_4]`}
+          placeholder="Enter option"
+          id={`questions[${index}][option_4]`}
+        />
+      </div>
+      <div>
+        <label htmlFor={`questions[${index}][answer]`}>Answer</label>
+        <input
+          type="text"
+          name={`questions[${index}][answer]`}
+          placeholder="Enter answer"
+          id={`questions[${index}][answer]`}
+        />
+      </div>
     </div>
   );
 };
