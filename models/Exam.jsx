@@ -26,6 +26,11 @@ const ExamSchema = new Schema(
       required: true,
       unique: true,
     },
+    slug: {
+      type: String,
+      required: true,
+      unique: true,
+    },
     description: {
       type: String,
       required: false,
