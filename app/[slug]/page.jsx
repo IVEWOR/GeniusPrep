@@ -1,19 +1,19 @@
+import { notFound } from "next/navigation";
+
 export default async function Page({ params }) {
   const res = await fetch(
-    `http://localhost:3000/api/categories?slug=${params.slug}`,
-    { next: { revalidate: 5000 } }
+    `http://localhost:3000/api/categories/${params.slug}`,
+    { next: { revalidate: 500000 } }
   );
-  if (!res.ok) {
-    throw new Error(`Error fetching categories ${params.slug}`);
-  }
-  const data = await res.json();
 
-  if (data[0].slug !== params.slug) {
-    return "Not category ";
+  if (res.status === 404) {
+    return notFound();
   }
+  const category = await res.json();
+
   return (
     <div>
-      <h1>Category: {(data[0].title, data[0].slug)}</h1>
+      <h1>Category: {category.title}</h1>
     </div>
   );
 }
