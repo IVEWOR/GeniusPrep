@@ -30,7 +30,7 @@ export default function Page() {
         />
       </div>
       <div>
-        <label htmlFor="slug">Title</label>
+        <label htmlFor="slug">slug</label>
         <input type="text" name="slug" placeholder="cat slug" id="slug" />
       </div>
 

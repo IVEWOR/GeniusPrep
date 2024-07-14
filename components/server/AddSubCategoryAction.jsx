@@ -7,7 +7,7 @@ async function AddSubCategoryAction(formData) {
     title: formData.get("title").toString(),
     description: formData.get("description").toString(),
     slug: formData.get("slug").toString(),
-    category: formData.get("category").toString(), // Ensure this matches the form field name
+    category: formData.get("category").toString(),
   };
   await connectDB();
   const createSubCategory = new SubCategories({

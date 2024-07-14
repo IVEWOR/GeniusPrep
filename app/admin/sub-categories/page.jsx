@@ -40,6 +40,10 @@ export default function Page() {
         />
       </div>
       <div>
+        <label htmlFor="slug">slug</label>
+        <input type="text" name="slug" placeholder="cat slug" id="slug" />
+      </div>
+      <div>
         <label htmlFor="description">Description</label>
         <textarea name="description" id="description"></textarea>
       </div>
