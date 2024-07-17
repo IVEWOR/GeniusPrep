@@ -6,6 +6,7 @@ async function AddExamAction(formData) {
   // Extracting static fields
   const rawFormData = {
     title: formData.get("title").toString(),
+    slug: formData.get("slug").toString(),
     description: formData.get("description").toString(),
     category: formData.get("category").toString(),
     subCategory: formData.get("subCategory").toString(),
@@ -37,6 +38,7 @@ async function AddExamAction(formData) {
   await connectDB();
   const createExam = new Exam({
     title: rawFormData.title,
+    slug: rawFormData.slug,
     description: rawFormData.description,
     category: rawFormData.category,
     subCategory: rawFormData.subCategory,

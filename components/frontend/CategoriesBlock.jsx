@@ -5,7 +5,7 @@ import Category from "./Category";
 
 // fetch cats from db
 async function fetchCategories() {
-  const res = await fetch("/api/categories");
+  const res = await fetch("/api/sub-categories");
   if (!res.ok) {
     throw new Error("failed to fetch the categories [categories block]");
   }
@@ -31,7 +31,7 @@ export default function CategoriesBlock() {
     <div className="container mx-auto mt-10">
       <div className="flex gap-5">
         {categories.map((category) => (
-          <Category key={category._id} title={category.title} link="#" />
+          <Category key={category._id} title={category.title} link={category.slug} />
         ))}
       </div>
     </div>

@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import ExamLoop from "@/components/frontend/ExamLoop";
 
 export default async function Page({ params }) {
   const res = await fetch(
@@ -9,11 +10,16 @@ export default async function Page({ params }) {
   if (res.status === 404) {
     return notFound();
   }
+
   const subCategory = await res.json();
 
   return (
-    <div>
-      <h1>Category: {subCategory.title}</h1>
+    <div className="container mx-auto">
+      <div className="text-center py-20 bg-gray-100">
+        <h1 className="text-2xl font-medium">{subCategory.title} Mock Tests</h1>
+      </div>
+      <ExamLoop />
+
     </div>
   );
 }
