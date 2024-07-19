@@ -42,8 +42,10 @@ async function AddExamAction(formData) {
     description: rawFormData.description,
     category: rawFormData.category,
     subCategory: rawFormData.subCategory,
-    questions: questions, // Adding the questions array
+    questions: questions,
   });
+
+  console.log(rawFormData);
 
   await createExam.save();
 }
