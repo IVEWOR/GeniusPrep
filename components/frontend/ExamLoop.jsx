@@ -21,7 +21,7 @@ export default async function ExamLoop() {
                         <span className="text-xs uppercase font-gray-500">Free Test </span>
                         <h2 className="font-medium text-lg">{exam.title}</h2>
                         <button className="text-sm px-4 py-2 rounded h-fit text-white w-fit text-left bg-emerald-500">Start Test</button>
-                        <Link className="absolute top-0 left-0 right-0 bottom-0" href={exam.slug}><span className="sr-only">Learn More About {exam.title}</span></Link>
+                        <Link className="absolute top-0 left-0 right-0 bottom-0" href={`/tests/${exam.slug}`}><span className="sr-only">Learn More About {exam.title}</span></Link>
                     </div>
                 ))}
             </div>
