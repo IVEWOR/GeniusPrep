@@ -2,6 +2,9 @@
 
 import { useEffect, useState } from "react";
 import AddSubCategoryAction from "@/components/server/AddSubCategoryAction";
+import FieldWrap from "@/components/server/form/FieldWrap";
+import Label from "@/components/server/form/Label";
+import Input from "@/components/server/form/Input";
 
 // Fetching the existing categories for the sub-categories form
 async function fetchCategories() {
@@ -29,36 +32,57 @@ export default function Page() {
   }, []);
 
   return (
-    <form action={AddSubCategoryAction}>
-      <div>
-        <label htmlFor="title">Title</label>
-        <input
-          type="text"
-          name="title"
-          placeholder="Enter exam category title"
-          id="title"
+    <form
+      className="max-w-6xl mx-auto my-10 px-4"
+      action={AddSubCategoryAction}
+    >
+      <FieldWrap>
+        <Label htmlfor="title" text="Title" />
+        <Input
+          name={"title"}
+          placeholder={"Sub category title"}
+          id={"title"}
+          required={true}
         />
-      </div>
-      <div>
-        <label htmlFor="slug">slug</label>
-        <input type="text" name="slug" placeholder="cat slug" id="slug" />
-      </div>
-      <div>
-        <label htmlFor="description">Description</label>
-        <textarea name="description" id="description"></textarea>
-      </div>
-      <div>
-        <label htmlFor="category">Category</label>
-        <select name="category" id="category">
+      </FieldWrap>
+      <FieldWrap>
+        <Label htmlfor="slug" text="Slug" />
+        <Input
+          name={"slug"}
+          placeholder={"Test Slug"}
+          id={"slug"}
+          required={true}
+        />
+      </FieldWrap>
+      <FieldWrap>
+        <Label htmlfor="description" text="Description" />
+        <textarea
+          className="outline-none border rounded p-2 text-sm"
+          name="description"
+          id="description"
+        ></textarea>
+      </FieldWrap>
+      <FieldWrap>
+        <Label htmlfor="category" text="Category" />
+        <select
+          name="category"
+          id="category"
+          className="outline-none border p-2 rounded text-sm"
+        >
           {categories.map((category) => (
             <option key={category._id} value={category._id}>
               {category.title}
             </option>
           ))}
         </select>
-      </div>
+      </FieldWrap>
       <div>
-        <button type="submit">Add Sub-Category</button>
+        <button
+          className="bg-emerald-500 text-white block text-sm p-2 px-5 rounded"
+          type="submit"
+        >
+          Add Sub-Category
+        </button>
       </div>
     </form>
   );
