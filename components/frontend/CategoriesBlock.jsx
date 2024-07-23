@@ -1,11 +1,8 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import Category from "./Category";
 
 // fetch cats from db
 async function fetchCategories() {
-  const res = await fetch("/api/sub-categories");
+  const res = await fetch("http://localhost:3000/api/sub-categories", { next: { revalidate: 10 } });
   if (!res.ok) {
     throw new Error("failed to fetch the categories [categories block]");
   }
@@ -13,22 +10,10 @@ async function fetchCategories() {
   return data;
 }
 
-export default function CategoriesBlock() {
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    async function loadCats() {
-      try {
-        const fetchedCategories = await fetchCategories();
-        setCategories(fetchedCategories);
-      } catch (err) {
-        throw new Error(`Error fetching cats |:| ${err}`);
-      }
-    }
-    loadCats();
-  }, []);
+export default async function CategoriesBlock() {
+  const categories = await fetchCategories();
   return (
-    <div className="container mx-auto mt-10">
+    <div className="container mx-auto mt-10 px-4">
       <div className="flex gap-5">
         {categories.map((category) => (
           <Category key={category._id} title={category.title} link={category.slug} />

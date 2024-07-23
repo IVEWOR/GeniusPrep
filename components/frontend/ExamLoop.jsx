@@ -14,11 +14,11 @@ export default async function ExamLoop() {
   const exams = await fetchExams();
 
   return (
-    <div className="container mx-auto mt-10">
-      <div className="flex gap-4">
+    <div className="px-4 container mx-auto mt-10">
+      <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {exams.map((exam) => (
           <div
-            className="sm:w-1/2 md:w-1/4 rounded shadow p-4 relative min-h-44 grid"
+            className="rounded shadow p-4 relative min-h-44 grid"
             key={exam._id}
           >
             <span className="text-xs uppercase text-gray-500">Free Test</span>
