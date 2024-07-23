@@ -36,6 +36,14 @@ export default function Question({ test }) {
           ))}
         </div>
       </div>
+      {currentIndex > 0 && (
+        <button
+          className="mt-4 rounded-lg p-2 bg-emerald-500 text-white"
+          onClick={() => setCurrentIndex(currentIndex - 1)}
+        >
+          Previous Question
+        </button>
+      )}
       {currentIndex < test.questions.length - 1 && (
         <button
           className="mt-4 rounded-lg p-2 bg-emerald-500 text-white"

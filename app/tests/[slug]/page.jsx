@@ -15,7 +15,6 @@ export default async function Page({ params }) {
   return (
     <div className="container mx-auto">
       <h1>{test.title}</h1>
-      {console.log(test.questions.length)}
       {test.questions.length > 0 ? <Question test={test} /> : "no question"}
     </div>
   );
