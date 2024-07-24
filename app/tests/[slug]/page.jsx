@@ -13,8 +13,8 @@ export default async function Page({ params }) {
   const test = await res.json();
 
   return (
-    <div className="container mx-auto">
-      <h1>{test.title}</h1>
+    <div className="container mx-auto px-4">
+      <h1 className="text-2xl my-6">{test.title}</h1>
       {test.questions.length > 0 ? <Question test={test} /> : "no question"}
     </div>
   );
